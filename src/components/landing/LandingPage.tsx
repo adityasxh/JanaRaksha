@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+import JanaRakshaShield from "./JanaRakshaShield";
 
 import {
   ArrowRight,
@@ -65,17 +67,29 @@ export default function LandingPage() {
         >
           {/* Logo */}
           <Link
-            href="/"
-            className="group flex min-h-11 shrink-0 items-center gap-2 rounded-xl px-2 focus-visible:outline-none"
-          >
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--color-heading)] text-[var(--color-text-inverse)] transition-transform duration-200 group-hover:-translate-y-0.5">
-              <Shield size={21} strokeWidth={1.8} />
-            </span>
+  href="/"
+  className="group flex min-h-12 shrink-0 items-center gap-3 rounded-xl px-2"
+>
+  <Image
+    src="/JanaRaksha.svg"
+    alt="JanaRaksha logo"
+    width={58}
+    height={58}
+    priority
+    className="object-contain transition-transform duration-200 group-hover:-translate-y-0.5"
+  />
 
-            <span className="hidden font-[var(--font-heading)] text-xl text-[var(--color-heading)] sm:block">
-              JanaRaksha
-            </span>
-          </Link>
+  <span
+    className="hidden text-2xl text-[var(--color-heading)] sm:block"
+    style={{
+      fontFamily: "var(--font-heading)",
+      fontWeight: 700,
+      letterSpacing: "-0.02em",
+    }}
+  >
+    JanaRaksha
+  </span>
+</Link>
 
           {/* Desktop navigation */}
           <div className="ml-auto hidden items-center gap-1 lg:flex">
@@ -147,7 +161,7 @@ export default function LandingPage() {
       </header>
 
       {/* HERO */}
-      <section className="relative mx-auto flex min-h-[760px] max-w-[1200px] flex-col justify-center px-5 pb-20 pt-36 sm:px-8 lg:min-h-[820px] lg:px-10">
+      <section className="relative mx-auto flex min-h-[820px] max-w-[1200px] flex-col justify-center px-5 pb-20 pt-40 sm:px-8 lg:px-10">
         {/* Decorative orbital lines */}
         <div
           aria-hidden="true"
@@ -159,7 +173,7 @@ export default function LandingPage() {
           className="pointer-events-none absolute right-[-110px] top-[200px] h-[290px] w-[290px] rounded-full border border-[var(--color-border)] opacity-40"
         />
 
-        <div className="relative z-10 max-w-3xl">
+        <div className="relative z-10 max-w-3xl -translate-y-20">
           {/* Eyebrow */}
           <div className="hero-fade-up mb-5 flex items-center gap-3 text-sm font-medium tracking-wide text-[var(--color-body)]">
             <span className="h-px w-8 bg-[var(--color-heading)]" />
@@ -167,7 +181,15 @@ export default function LandingPage() {
           </div>
 
           {/* Main heading */}
-          <h1 className="hero-fade-up hero-delay-1 max-w-3xl text-[clamp(2.8rem,7vw,5.5rem)] leading-[0.98] tracking-[-0.035em]">
+          <h1
+  className="hero-fade-up hero-delay-1 max-w-3xl leading-[0.98] tracking-[-0.035em]"
+  style={{
+  fontSize: "clamp(3.5rem, 5vw, 4.5rem)",
+  fontWeight: 600,
+  lineHeight: 1,
+}}
+  
+>
             When something happens,
             <br />
             <span className="text-[var(--color-heading)]">
@@ -185,15 +207,16 @@ export default function LandingPage() {
           {/* CTAs */}
           <div className="hero-fade-up hero-delay-3 mt-9 flex flex-col gap-3 sm:flex-row">
             <Link
-              href="/report"
-              className="group flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[var(--color-heading)] px-6 font-medium text-[var(--color-text-inverse)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_0_4px_rgba(226,183,97,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-glow)]"
-            >
-              Report incident
-              <ArrowRight
-                size={17}
-                className="transition-transform duration-200 group-hover:translate-x-1"
-              />
-            </Link>
+  href="/report"
+  className="group flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[var(--color-heading)] px-6 font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_0_4px_rgba(226,183,97,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-glow)]"
+  style={{ color: "#ffffff" }}
+>
+  Report incident
+  <ArrowRight
+    size={17}
+    className="transition-transform duration-200 group-hover:translate-x-1"
+  />
+</Link>
 
             <Link
               href="/track"
@@ -223,46 +246,15 @@ export default function LandingPage() {
             <span>Transparent tracking</span>
           </div>
         </div>
+        {/* 3D SHIELD */}
+<div
+  className="pointer-events-auto absolute right-[-20px] top-1/2 z-10 hidden w-[42%] -translate-y-1/2 lg:block"
+  aria-label="Interactive JanaRaksha 3D shield"
+>
+  <JanaRakshaShield />
+</div>
 
-        {/* Floating system card */}
-        <div
-          aria-hidden="true"
-          className="hero-card-float absolute bottom-20 right-8 hidden w-[260px] rounded-2xl border border-[var(--color-border)] bg-[rgba(255,250,251,0.88)] p-5 backdrop-blur-md lg:block"
-        >
-          <div className="mb-4 flex items-center justify-between">
-            <span className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-body)]">
-              Complaint flow
-            </span>
-
-            <span className="h-2 w-2 rounded-full bg-[var(--color-success)]" />
-          </div>
-
-          <div className="space-y-3">
-            {["Reported", "Routed", "Tracked", "Resolved"].map(
-              (step, index) => (
-                <div key={step} className="flex items-center gap-3">
-                  <span
-                    className={`flex h-7 w-7 items-center justify-center rounded-full text-xs font-semibold ${
-                      index < 2
-                        ? "bg-[var(--color-heading)] text-white"
-                        : "border border-[var(--color-border-strong)] text-[var(--color-body)]"
-                    }`}
-                  >
-                    {index + 1}
-                  </span>
-
-                  <span className="text-sm text-[var(--color-body)]">
-                    {step}
-                  </span>
-
-                  {index < 3 && (
-                    <span className="ml-auto h-px w-5 bg-[var(--color-border)]" />
-                  )}
-                </div>
-              ),
-            )}
-          </div>
-        </div>
+        
       </section>
 
       {/* QUICK ACTIONS */}
@@ -367,7 +359,7 @@ export default function LandingPage() {
       <section className="px-5 pb-24 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-[1200px]">
           <div className="relative overflow-hidden rounded-3xl border border-[rgba(165,48,63,0.28)] bg-[var(--color-surface)] p-7 sm:p-10 lg:p-12">
-            <div className="relative z-10 max-w-2xl">
+            <div className="relative z-10 max-w-3xl lg:max-w-[58%]">
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-danger)] text-white">
                 <Siren size={23} strokeWidth={1.8} />
               </div>
@@ -387,12 +379,14 @@ export default function LandingPage() {
               </p>
 
               <Link
-                href="/safety"
-                className="mt-7 inline-flex min-h-12 items-center gap-2 rounded-xl bg-[var(--color-danger)] px-6 font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_0_4px_rgba(165,48,63,0.16)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-glow)]"
-              >
-                Open Safety & SOS
-                <ArrowRight size={17} />
-              </Link>
+  href="/safety"
+  className="mt-7 inline-flex min-h-12 items-center gap-2 rounded-xl bg-[var(--color-danger)] px-6 font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_0_4px_rgba(165,48,63,0.16)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-glow)]"
+  style={{ color: "#ffffff" }}
+>
+
+  Open Safety & SOS
+  <ArrowRight size={17} />
+</Link>
             </div>
           </div>
         </div>

@@ -6,7 +6,6 @@ import {
   ArrowRight,
   ChevronRight,
   FileText,
-  HelpCircle,
   Home,
   LockKeyhole,
   MapPin,
@@ -26,7 +25,6 @@ const navItems = [
   { label: "Track complaint", href: "/track" },
   { label: "My complaints", href: "/complaints" },
   { label: "Safety & SOS", href: "/safety" },
-  { label: "Help", href: "/help", icon: HelpCircle },
   { label: "About", href: "/about" },
 ];
 
@@ -113,14 +111,22 @@ export default function LandingPage() {
 
           {/* Auth */}
           <div className="ml-auto hidden items-center gap-2 lg:flex">
-            <Link
-              href="/sign-in"
-              className="flex min-h-11 items-center gap-2 rounded-xl border border-[var(--color-border-strong)] px-4 text-sm font-medium text-[var(--color-heading)] transition-all duration-200 hover:border-[var(--color-glow)] hover:shadow-[0_0_0_4px_rgba(226,183,97,0.18)] focus-visible:outline-none"
-            >
-              <UserRound size={16} />
-              Sign in
-            </Link>
-          </div>
+  <Link
+    href="/sign-in"
+    className="flex min-h-11 items-center gap-2 rounded-xl border border-[var(--color-border-strong)] px-4 text-sm font-medium text-[var(--color-heading)] transition-all duration-200 hover:border-[var(--color-glow)] hover:shadow-[0_0_0_4px_rgba(226,183,97,0.18)] focus-visible:outline-none"
+  >
+    <UserRound size={16} />
+    Sign in
+  </Link>
+
+  <Link
+    href="/register"
+    className="flex min-h-11 items-center justify-center rounded-xl bg-[var(--color-heading)] px-5 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_0_4px_rgba(226,183,97,0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-glow)]"
+    style={{ color: "#ffffff" }}
+  >
+    Register
+  </Link>
+</div>
 
           {/* Mobile menu */}
           <button

@@ -18,13 +18,13 @@ export default function SignInPage() {
 
   return (
     <main
-      className={`min-h-screen bg-[var(--color-background)] px-5 py-10 sm:px-8 transition-all duration-700 ease-out ${
+      className={`min-h-screen bg-[var(--color-background)] px-5 pb-16 pt-28 sm:px-8 sm:pt-32 transition-all duration-700 ease-out ${
         pageLoaded
           ? "translate-y-0 opacity-100"
           : "translate-y-4 opacity-0"
       }`}
     >
-      <div className="mx-auto flex min-h-[calc(100vh-80px)] max-w-[520px] flex-col justify-center">
+      <div className="mx-auto flex w-full max-w-[520px] flex-col">
 
         {/* HEADER */}
         <div
@@ -43,7 +43,10 @@ export default function SignInPage() {
             Welcome back to JanaRaksha
           </p>
 
-          <h1 className="text-[clamp(2.8rem,7vw,4.5rem)] leading-[0.98] tracking-[-0.035em] text-[var(--color-heading)]">
+          <h1
+            className="text-[clamp(2.8rem,7vw,4.5rem)] leading-[0.98] tracking-[-0.035em] text-[var(--color-heading)]"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
             Sign in to your account
           </h1>
 
@@ -74,9 +77,11 @@ export default function SignInPage() {
 
               <input
                 id="email"
+                name="email"
                 type="email"
+                autoComplete="email"
                 placeholder="Enter your email address"
-                className="w-full rounded-xl border border-[var(--color-border-strong)] bg-white px-4 py-3 text-sm text-[var(--color-heading)] outline-none transition-all placeholder:text-[var(--color-body)] focus:border-[var(--color-heading)] focus:ring-2 focus:ring-[rgba(107,30,42,0.12)]"
+                className="h-12 w-full rounded-xl border border-[var(--color-border-strong)] bg-white px-4 text-sm text-[var(--color-heading)] outline-none transition-all placeholder:text-[var(--color-body)] focus:border-[var(--color-heading)] focus:ring-2 focus:ring-[rgba(107,30,42,0.12)]"
                 required
               />
             </div>
@@ -102,9 +107,11 @@ export default function SignInPage() {
               <div className="relative">
                 <input
                   id="password"
+                  name="password"
                   type={showPassword ? "text" : "password"}
+                  autoComplete="current-password"
                   placeholder="Enter your password"
-                  className="w-full rounded-xl border border-[var(--color-border-strong)] bg-white px-4 py-3 pr-12 text-sm text-[var(--color-heading)] outline-none transition-all placeholder:text-[var(--color-body)] focus:border-[var(--color-heading)] focus:ring-2 focus:ring-[rgba(107,30,42,0.12)]"
+                  className="h-12 w-full rounded-xl border border-[var(--color-border-strong)] bg-white px-4 pr-12 text-sm text-[var(--color-heading)] outline-none transition-all placeholder:text-[var(--color-body)] focus:border-[var(--color-heading)] focus:ring-2 focus:ring-[rgba(107,30,42,0.12)]"
                   required
                 />
 
@@ -129,6 +136,7 @@ export default function SignInPage() {
             <div className="flex items-center gap-2">
               <input
                 id="remember"
+                name="remember"
                 type="checkbox"
                 className="h-4 w-4 rounded border-[var(--color-border-strong)] accent-[var(--color-heading)]"
               />
@@ -147,6 +155,7 @@ export default function SignInPage() {
               className="group flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[var(--color-heading)] px-6 font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_0_4px_rgba(226,183,97,0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-glow)]"
             >
               Sign in
+
               <ArrowRight
                 size={17}
                 className="transition-transform duration-200 group-hover:translate-x-1"
@@ -168,7 +177,7 @@ export default function SignInPage() {
           </div>
         </div>
 
-        {/* FOOTER */}
+        {/* FOOTER MESSAGE */}
         <p
           className={`mt-6 text-center text-xs text-[var(--color-body)] transition-all duration-700 delay-300 ${
             pageLoaded
@@ -178,6 +187,7 @@ export default function SignInPage() {
         >
           Your information is securely protected by JanaRaksha.
         </p>
+
       </div>
     </main>
   );
